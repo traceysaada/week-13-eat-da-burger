@@ -5,8 +5,8 @@ const burgers = require("../models/burger.js");
 
 
 router.get("/", function(req, res) {
-    cat.all(function(data) {
-      var hbsObject = {
+    burgers.all(function(data) {
+      const hbsObject = {
         burgers: data
       };
       console.log(hbsObject);
