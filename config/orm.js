@@ -1,25 +1,58 @@
 const connection = require("./connection.js");
 
+
+//SEE COLUM SO I NEED TO CALL THESE IN THE BELOW FUNCTION BRACKETS
 const orm = {
-    selectAll: function(tableInput, colToSearch, valOfCol) {
-      const queryString = "SELECT * FROM ?? WHERE ?? = ?";
-  
-      connection.query(queryString, [tableInput, colToSearch, valOfCol], function(err, result) {
+  selectAll: function (tableInput, cb) {
+    const queryString = "SELECT * FROM " + tableInput + ";" ;
+
+    connection.query(
+      queryString,
+      function (err, result) {
         if (err) throw err;
-        return result;
-      });
-    },
+        return cb(result);
+      }
+    );
+  },
 
-    insertOne: function() {
-      
+  insertOne: function () {
+    const queryString = "INSERT INTO" + tableInput;
+    queryString += " (";
+    queryString += cols.toString();
+    queryString += ") ";
+    queryString += "VALUES (";
+    queryString += printQuestionMarks(vals.length);
+    queryString += ") ";
 
-    },
+    console.log(queryString);
 
-    updateOne: function() {
+    connection.query(queryString, vals, (err, result) => {
+      if (err) {
+        throw err;
+      }
 
+      cb(result);
+    });
+  },
 
-    }
-  };
+  updateOne: function () {
+    const queryString = "UPDATE" + tableInput;
+    queryString += " SET ";
+    queryString += objToSql(objColVals);
+    queryString += " WHERE ";
+    queryString += condition;
+
+    console.log(queryString);
+    connection.query(queryString, (err, result) => {
+      if (err) {
+        throw err;
+      }
+
+      cb(result);
+    });
+  },
   
-  module.exports = orm;
-  
+  }
+
+
+module.exports = orm;
