@@ -26,19 +26,12 @@ const orm = {
     });
   },
 
-  updateOne: function () {
-    const queryString = "UPDATE" + tableInput;
-    queryString += " SET ";
-    queryString += objToSql(objColVals);
-    queryString += " WHERE ";
-    queryString += condition;
-
-    console.log(queryString);
+  updateOne: function (id, cb) {
+    const queryString = "UPDATE burgers SET devoured = true WHERE id =" + id + ";";
     connection.query(queryString, (err, result) => {
       if (err) {
         throw err;
       }
-
       cb(result);
     });
   },

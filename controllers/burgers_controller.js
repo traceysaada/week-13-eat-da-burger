@@ -18,23 +18,12 @@ router.get("/", function(req, res) {
     })
   });
   
-  router.put('/api/burger/:id', (req, res) => {
-    const condition = id = req.params.id;
-  
-    console.log('condition', condition);
-  
-   burgers.update(
-      {
-        //what information needs to go here
-      },
-      condition,
-      (result) => {
-        if (result.changedRows === 0) {
-         
-          return res.status(404).end();
-        }
-        res.status(200).end();
-      }
+  router.put('/api/burgers/:id', (req, res) => {
+   burgers.update(req.params.id, function(result){
+     console.log(result)
+     res.sendStatus(200);
+   }
+    
     );
   });
 

@@ -9,10 +9,8 @@ const burgers = {
   create: function (name, cb) {
     orm.insertOne(name, cb);
   },
-  update: function (cb) {
-    orm.updateOne("burgers", function (res) {
-      cb(res);
-    });
+  update: function (id, cb) {
+    orm.updateOne(id, cb);
   },
 };
 
