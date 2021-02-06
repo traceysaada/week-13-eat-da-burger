@@ -1,32 +1,23 @@
 const connection = require("./connection.js");
 
-
 //SEE COLUM SO I NEED TO CALL THESE IN THE BELOW FUNCTION BRACKETS
 const orm = {
   selectAll: function (tableInput, cb) {
-    const queryString = "SELECT * FROM " + tableInput + ";" ;
+    const queryString = "SELECT * FROM " + tableInput + ";";
 
-    connection.query(
-      queryString,
-      function (err, result) {
-        if (err) throw err;
-        return cb(result);
-      }
-    );
+    connection.query(queryString, function (err, result) {
+      if (err) throw err;
+      return cb(result);
+    });
   },
 
-  insertOne: function () {
-    const queryString = "INSERT INTO" + tableInput;
-    queryString += " (";
-    queryString += cols.toString();
-    queryString += ") ";
-    queryString += "VALUES (";
-    queryString += printQuestionMarks(vals.length);
-    queryString += ") ";
+  insertOne: function (name, cb) {
+    const queryString =
+      "INSERT INTO burgers (burger_name) VALUES ('" + name + "');";
 
     console.log(queryString);
 
-    connection.query(queryString, vals, (err, result) => {
+    connection.query(queryString, (err, result) => {
       if (err) {
         throw err;
       }
@@ -51,8 +42,6 @@ const orm = {
       cb(result);
     });
   },
-  
-  }
-
+};
 
 module.exports = orm;
