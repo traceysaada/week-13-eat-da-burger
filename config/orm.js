@@ -1,6 +1,4 @@
 const connection = require("./connection.js");
-
-//SEE COLUM SO I NEED TO CALL THESE IN THE BELOW FUNCTION BRACKETS
 const orm = {
   selectAll: function (tableInput, cb) {
     const queryString = "SELECT * FROM " + tableInput + ";";
@@ -21,13 +19,12 @@ const orm = {
       if (err) {
         throw err;
       }
-
       cb(result);
     });
   },
-
   updateOne: function (id, cb) {
-    const queryString = "UPDATE burgers SET devoured = true WHERE id =" + id + ";";
+    const queryString =
+      "UPDATE burgers SET devoured = true WHERE id =" + id + ";";
     connection.query(queryString, (err, result) => {
       if (err) {
         throw err;
