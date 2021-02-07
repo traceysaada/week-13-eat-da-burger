@@ -6,11 +6,11 @@ const app = express();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static("public"));
+app.use(express.static(__dirname));
 app.use(routes);
 app.engine("handlebars", expressHandleBars({defaultLayout: "main"}));
 app.set("view engine", "handlebars");
 
 
 
-app.listen(PORT, () => console.log("aplication is running"));
+app.listen(PORT, () => console.log("aplication is running" + PORT));

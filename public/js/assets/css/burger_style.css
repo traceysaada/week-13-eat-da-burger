@@ -1,7 +1,7 @@
 
 
-.body {
-	background-color: orange;
+body {
+	background-color: #ffdfa4;
 	margin: 0px;
 	padding: 0px;
 }
@@ -10,7 +10,13 @@
 	color:black;
 }
   
-
-  
+#burger {
+	float: right;
+}
+ 
+.form-control {
+	color:black;
+	background-color: cornsilk;
+}
  
   
