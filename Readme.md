@@ -41,8 +41,5 @@ what License would you like to use: Apache
 
 *Additional information
 
-I am happy that all functionality is working & all connections are working. but the following needs more attention.
-
-This application needs further work to make it more eye friendly on the browser. I have prepared the application to improve this but need more time to make it look right. The css file & picture are created but I need to come back to this has im not sure how to do this at this point.
 
 
